@@ -14,12 +14,13 @@ function loadNewsData() {
         }
         );
     }
-    ).catch(
+    ).catch(error=>{
 		console.error('加载新闻数据失败:', error);
         const alarmInfoDiv = document.getElementById('news-info-1');
         const subAlarmDiv = document.createElement('div');
         subAlarmDiv.innerHTML = `<p>加载新闻数据失败。</p><br>`;
         alarmInfoDiv.appendChild(subAlarmDiv);
+	}
 	);
 	fetch('https://www.chinanews.com.cn/rss/importnews.xml').then(response=>response.text()).then(str=>new window.DOMParser().parseFromString(str, 'text/xml')).then(data=>{
         // 获取显示区域
@@ -36,12 +37,14 @@ function loadNewsData() {
         }
         );
     }
-    ).catch(
+    ).catch(error=>{
 		console.error('加载新闻数据失败:', error);
         const alarmInfoDiv = document.getElementById('news-info-2');
         const subAlarmDiv = document.createElement('div');
         subAlarmDiv.innerHTML = `<p>加载新闻数据失败。</p><br>`;
-        alarmInfoDiv.appendChild(subAlarmDiv););
+        alarmInfoDiv.appendChild(subAlarmDiv);
+	}
+	);
 }
 
 // 初次加载预警数据

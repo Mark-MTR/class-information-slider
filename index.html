@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>你班晚辅用</title>
+        <link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/qweather-icons@1.3.0/font/qweather-icons.css">
+		<script id="alarm-script"></script>
+		<script id="forecast-script"></script>
+    </head>
+	<body>
+		<header>
+			<div id="clock"></div>
+			<script src="clock.js"></script>
+		</header>
+		<main>
+			<div class="marquee-container">
+				<div class="marquee-content">
+					<p>深圳市气象预警</p>
+					<div id="alarm-info"><p>预警信息加载中……</p></div>
+					<p>深圳市天气预报</p>
+					<div id="forecast-info"><p>预报信息加载中……</p></div>
+					<p>中国新闻网 即时新闻</p>
+					<div id="news-info-1"><p>新闻加载中……</p></div>
+					<p>中国新闻网 要闻导读</p>
+					<div id="news-info-2"><p>新闻加载中……</p></div>
+				</div>
+			</div>
+			<script src="weather-warning.js"></script>
+			<script src="weather-forecast.js"></script>
+			<script src="news-feed.js"></script>
+		</main>
+	</body>
+</html>

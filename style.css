@@ -48,7 +48,7 @@ main {
         .marquee-content {
             position: absolute;
             width: 100%;
-            animation: scroll-up 30s linear infinite;
+            animation: scroll-up 120s linear infinite;
         }
         @keyframes scroll-up {
             0% {

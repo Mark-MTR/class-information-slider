@@ -111,4 +111,4 @@ function loadAlarmData() {
 loadAlarmData();
 
 // 刷新预警信息
-// setInterval(loadAlarmData, 10000);
+setInterval(loadAlarmData, 60000);

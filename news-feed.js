@@ -14,7 +14,8 @@ function loadNewsData() {
         }
         );
     }
-    ).catch(console.error('加载新闻数据失败:', error);
+    ).catch(
+		console.error('加载新闻数据失败:', error);
         const alarmInfoDiv = document.getElementById('news-info-1');
         const subAlarmDiv = document.createElement('div');
         subAlarmDiv.innerHTML = `<p>加载新闻数据失败。</p><br>`;
@@ -35,7 +36,8 @@ function loadNewsData() {
         }
         );
     }
-    ).catch(console.error('加载新闻数据失败:', error);
+    ).catch(
+		console.error('加载新闻数据失败:', error);
         const alarmInfoDiv = document.getElementById('news-info-2');
         const subAlarmDiv = document.createElement('div');
         subAlarmDiv.innerHTML = `<p>加载新闻数据失败。</p><br>`;

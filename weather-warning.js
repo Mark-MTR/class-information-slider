@@ -1,10 +1,10 @@
 function loadAlarmData() {
     // 从给定的 URL 进行数据加载
-    fetch('https://mark-mtr.github.io/proxy-test/data/szAlarm.js').then(response=>response.text()).then(scriptText=>{
+    fetch('https://mark-mtr.github.io/proxy-test/data/szAlarm.js').then(response=>response.text()).then(scriptContent=>{
         // 解析脚本内容
         const script = document.getElementById('alarm-script');
         script.textContent = '';
-        script.textContent = scriptText;
+        script.textContent = scriptContent;
         document.head.appendChild(script);
 
         // 获取显示区域
@@ -26,9 +26,7 @@ function loadAlarmData() {
             subAlarmDiv.innerHTML = `<p>现在没有生效中的预警。</p>`;
             alarmInfoDiv.appendChild(subAlarmDiv);
             return;
-        } else {
-            console.log('');
-        }
+        } else {}
 
         // 显示子预警信息
         SZ121_AlarmInfo.subAlarm.forEach(alarm=>{
@@ -67,6 +65,16 @@ function loadAlarmData() {
                 // 防止出现没有的预警
             }
 
+			let tempColor = '';
+			if (alarm.alarmType === '雷电') {
+                tempColor = '黄色';
+            } else if (alarm.alarmType === '干旱') {
+                tempColor = '黄色';
+			} else if (alarm.alarmType === '灰霾') {
+                tempColor = '黄色';
+			}
+
+
             // 停课信号
             const conditions = [{
                 alarmType: '暴雨',
@@ -88,7 +96,7 @@ function loadAlarmData() {
             let level = '';
             level = conditions.some(condition=>alarm.alarmType === condition.alarmType && alarm.alarmColor === condition.alarmColor) ? 'tingke' : '';
 
-            subAlarmDiv.innerHTML = `<div class="${alarm.alarmColor} ${level}" style="margin-bottom: 10px">
+            subAlarmDiv.innerHTML = `<div class="${tempColor} ${alarm.alarmColor} ${level}" style="margin-bottom: 10px">
                 <p><span class="qi-${alarmClass}"></span>&nbsp;${alarm.alarmType}${alarm.alarmColor}预警</p>
                 <p class="alarm-date">${alarm.date}</p>
                 <p class="alarm-area">发表区域：${alarm.alarmArea}</p>
